@@ -31,7 +31,7 @@ class BookRepository:
 		result = await session.execute(query)
 		if result.scalars().first():
 	    	book_dict = data.model_dump()
-	    	query = update(BookModel).where(BooksModel.id == book_id).values(**book_dict)
+	    	query = update(BooksModel).where(BooksModel.id == book_id).values(**book_dict)
 	    	result = await session.execute(query)
 	    	await session.commit()
 	    	await session.refresh(result)
