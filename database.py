@@ -13,6 +13,6 @@ class Model(DeclarativeBase):
 
 async def get_db():
     async with new_session() as session:
-		yield session
+        yield session
 
 SessionDep = Annotated[AsyncSession, Depends(get_db)]
